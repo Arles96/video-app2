@@ -9,61 +9,73 @@ import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native'
  */
 
 const Card = ({ title, image, description }) => {
-    // ejecucion de esta funcion
-    const imageSourcer = {
-        uri: image
-    }
+  // ejecucion de esta funcion
+  const imageSourcer = {
+    uri: image
+  }
 
-    const onPressButton = () => {
-        console.log('Se presionó el botón');
-    };
+  const onPressButton = () => {
+    console.log('Se presionó el botón');
+  };
 
-    return (
-        <View style={styles.container} >
-            <Text style={styles.title} >
-                {title}
-            </Text>
-            <Image style={styles.mainImage} source={imageSourcer} />
-            <Text style={styles.description} >{description}</Text>
-            <TouchableHighlight style={styles.button} underlayColor="#EEE"  onPress={onPressButton} >
-                <Text style={styles.buttonText} >Ver más</Text>
-            </TouchableHighlight>
-        </View>
-    );
+  return (
+    <View style={styles.container} >
+        <Text style={styles.title} >
+            {title}
+        </Text>
+        <Image style={styles.mainImage} source={imageSourcer} />
+        <Text style={styles.description} >{description}</Text>
+        <TouchableHighlight style={styles.button} underlayColor="#ff6659"  onPress={onPressButton} >
+            <Text style={styles.buttonText} >Ver más</Text>
+        </TouchableHighlight>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 0,
-        backgroundColor: '#0F0',
-        padding: 10
-    },
-    title: {
-        fontSize: 30
-    },
-    mainImage: {
-        height: 150
-    },
-    button: {
-        height: 30,
-        marginTop: 10,
-        backgroundColor: "#999"
-    },
-    buttonText: {
-        fontSize: 20,
-        color: "#222"
-    },
-    description: {
-        marginLeft: 10,
-        fontSize: 13,
-        color: "#EEE"
-    }
+  container: {
+    flex: 0,
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 3
+  },
+  title: {
+    fontSize: 30,
+    padding: 5,
+    backgroundColor: '#9a0007',
+    textAlign: 'center'
+  },
+  mainImage: {
+    height: 190
+  },
+  button: {
+    height: 38,
+    marginTop: 10,
+    backgroundColor: "#d32f2f",
+    width: 140,
+    alignSelf: 'flex-end',
+    borderRadius: 3
+  },
+  buttonText: {
+    fontSize: 20,
+    lineHeight: 38,
+    color: "#fff",
+    textAlign: 'center'
+  },
+  description: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 20,
+    marginBottom: 20,
+    fontSize: 13,
+    color: "#000"
+  }
 });
 
 Card.propTypes = {
-    title: PropType.string.isRequired,
-    image: PropType.string.isRequired,
-    description: PropType.string.isRequired
+  title: PropType.string.isRequired,
+  image: PropType.string.isRequired,
+  description: PropType.string.isRequired
 };
 
 export default Card;

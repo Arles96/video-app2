@@ -1,21 +1,36 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import Card from './Card';
 
-const items  = [
-  'Item 1',
-  "Item 2",
-  "Item 3"
-];
-
-const CardSet = ({}) => (
-  <View>
-    {
-      // ES6 "funcion map"
-      items.map(item => (
-        <Text>{item}</Text>
-      ))
-    }
-  </View>
+const CardSet = ({ items }) => (
+  <ScrollView>
+    <View style={styles.container} >
+      {
+        // ES6 "funcion map"
+        items.map(item => <View key={item.title} style={styles.cardStyle} ><Card {...item} /></View>)
+      }
+    </View>
+  </ScrollView>
 );
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    backgroundColor: '#E1E2E1'
+  },
+  cardStyle: {
+    marginBottom: 20
+  }
+})
+
+CardSet.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    description: PropTypes.string
+  })).isRequired
+};
+
 
 export default CardSet;
