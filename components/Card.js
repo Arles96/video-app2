@@ -1,6 +1,6 @@
 import React from 'react';
 import PropType from 'prop-types'
-import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableHighlight, Linking } from 'react-native';
 
 /**
  * Titulo
@@ -8,7 +8,7 @@ import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native'
  * Descripción
  */
 
-const Card = ({ title, image, description }) => {
+const Card = ({ title, image, description, url }) => {
   // ejecucion de esta funcion
   const imageSourcer = {
     uri: image
@@ -16,6 +16,7 @@ const Card = ({ title, image, description }) => {
 
   const onPressButton = () => {
     console.log('Se presionó el botón');
+    Linking.openURL(url);
   };
 
   return (
